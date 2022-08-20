@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export const SEO = ({ title, img, description, url }) => {
+ const SEO = ({ title, img, description, url }) => {
   return (
     <Head>
       <title>{title}</title>
@@ -26,3 +26,5 @@ export const SEO = ({ title, img, description, url }) => {
     </Head>
   );
 };
+
+export default SEO;
