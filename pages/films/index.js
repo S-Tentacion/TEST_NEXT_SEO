@@ -7,11 +7,25 @@ function FilmPage() {
   const [items, setItems] = useState([]);
   const router = useRouter();
   const query = router.query;
+  const [recipes, setRecipes] = useState([]);
+
+  const getRecipes = async () => {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY
+      }`
+    );
+    const data = await response.json()
+    console.log(data)
+  }
+
+  useEffect(() => {
+    getRecipes()
+  }, [])
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    const endpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${
-      process.env.NEXT_PUBLIC_API_KEY
-    }&page=${query.page ?? 1}`;
+    const endpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY
+      }&page=${query.page ?? 1}`;
     fetch(endpoint)
       .then((res) => res.json())
       .then((data) => {

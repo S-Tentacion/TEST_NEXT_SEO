@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import SEO from "./SEO";
 
-const MainLayout = (props) => {
+const MainLayout = ({ seo, ...props }) => {
   return (
     <>
       {/* <Head>
@@ -16,7 +16,7 @@ const MainLayout = (props) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         />
       </Head> */}
-      <SEO />
+      <SEO {...seo} />
       <Header />
       <main className="main-child" style={props.style}>
         {props.children}

@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 function Home() {
   const session = useSession();
   return (
-    <MainLayout>
+    <MainLayout seo={{ title: "DIFX | Movies" }}>
       <div className="first_interact">
         {!(session.status === "authenticated") ? (
           <>
